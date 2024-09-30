@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Calculators</title>
+    <style>
+      body {
+        font-family: "Times New Roman", serif;
+        padding: 40px 40px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+      input {
+        margin: 5px 0;
+        padding: 8px;
+        width: 120px;
+      }
+      .result {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      h3 {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Triangle Area Calculator</h3>
+    <p>5 ,6 and 7 are sides of triangle</p>
+    <button onclick="calculateArea()">Calculate Area</button>
+    <p id="triangleResult" class="result"></p>
+
+    <script>
+      function calculateArea() {
+        let a = 5;
+        let b = 6;
+        let c = 7;
+        let s = (a + b + c) / 2;
+        let area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        document.getElementById("triangleResult").innerHTML =
+          "Area = " + area.toFixed(2) + " square units";
+      }
+    </script>
+    <h3>Multiplication and Division of two numbers</h3>
+      <input type="number" id="number1" />
+      <input type="number" id="number2" /><br /><br />
+      <button onclick="multiply()">Multiply</button>
+      <button onclick="divide()">Divide</button>
+    <p id="Result" class="result"></p>
+
+    <script>
+      function multiply() {
+        let num1 = document.getElementById("number1").value;
+        let num2 = document.getElementById("number2").value;
+        let result = num1 * num2;
+        document.getElementById("Result").innerHTML =
+          "Multiplication result = " + result;
+      }
+
+      function divide() {
+        let num1 = document.getElementById("number1").value;
+        let num2 = document.getElementById("number2").value;
+
+        let result = num1 / num2;
+        document.getElementById("Result").innerHTML =
+          "Division result = " + result;
+      }
+    </script>
+    <div class="container">
+      <h3>String Modifier</h3>
+      <button onclick="addJavaScript()">New String</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function addJavaScript() {
+        let definedString = "+ defined string";
+        let newString = "JavaScript " + definedString;
+        document.getElementById("result").textContent =
+          "New String: " + newString;
+      }
+    </script>
+  </body>
+</html>
