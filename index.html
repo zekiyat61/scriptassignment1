@@ -46,40 +46,48 @@
       }
     </script>
     <h3>Multiplication and Division of two numbers</h3>
-      <input type="number" id="number1" />
-      <input type="number" id="number2" /><br /><br />
-      <button onclick="multiply()">Multiply</button>
-      <button onclick="divide()">Divide</button>
+    <input type="number" id="number1" />
+    <input type="number" id="number2" /><br /><br />
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
     <p id="Result" class="result"></p>
 
     <script>
       function multiply() {
-        let num1 = document.getElementById("number1").value;
-        let num2 = document.getElementById("number2").value;
-        let result = num1 * num2;
+        let num1 = document.getElementById("number1");
+        let num2 = document.getElementById("number2");
+        let result = num1.value * num2.value;
         document.getElementById("Result").innerHTML =
           "Multiplication result = " + result;
+        num1.value = null;
+        num2.value = null;
       }
 
       function divide() {
-        let num1 = document.getElementById("number1").value;
-        let num2 = document.getElementById("number2").value;
-
-        let result = num1 / num2;
-        document.getElementById("Result").innerHTML =
-          "Division result = " + result;
+        let num1 = document.getElementById("number1");
+        let num2 = document.getElementById("number2");
+        if (num2.value == 0) {
+          document.getElementById("Result").innerHTML = "cannot divide by 0";
+        } else {
+          let result = num1.value / num2.value;
+          document.getElementById("Result").innerHTML =
+            "Division result = " + result;
+        }
+        num1.value = null;
+        num2.value = null;
       }
     </script>
     <div class="container">
-      <h3> javascript and String</h3>
+      <h3>javascript and String</h3>
+      <input type="text" id="newtext" />
       <button onclick="addJavaScript()">New String</button>
       <div class="result" id="result"></div>
     </div>
 
     <script>
       function addJavaScript() {
-        let definedString = "+ defined string";
-        let newString = "JavaScript " + definedString;
+        let newtext = document.getElementById("newtext").value;
+        let newString = "JavaScript " + newtext;
         document.getElementById("result").textContent =
           "New String: " + newString;
       }
